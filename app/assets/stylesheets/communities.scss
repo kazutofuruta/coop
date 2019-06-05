@@ -1,0 +1,370 @@
+// Place all the styles related to the communities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #6c6b6b;
+}
+
+.home {
+	text-decoration: none;
+	color: #ffffff;
+	line-height: 500px;
+	opacity: 1;
+	font-size: 250px;
+	z-index: 50;
+}
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+header{
+	width:100%;
+	height:500px;
+	background-image: url(IMG_5101.JPG);
+	background-size: cover;
+	background-position:30%  70%;
+	text-align: center;
+	z-index: 40;
+}
+
+.nav-list{
+	text-align: center;
+    padding:10px 0;
+    margin:0 auto;
+}
+
+.nav-list-item {
+	list-style: none;
+	display:inline-block;
+	margin:0 20px;
+}
+
+.text-flame1{
+	background-color:red;
+	text-align: center;
+	width: 130px;
+	border-radius: 10px;
+	position: relative;
+	top:54%;
+	left: 26%;
+}
+
+.text-flame4{
+	background-color:red;
+	text-align: center;
+	width: 180px;
+	border-radius: 10px;
+	position:relative;
+	top: 70%;
+	left: 23%;
+}
+
+.text-flame5{
+	background-color:red;
+	text-align: center;
+	border-radius: 10px;
+	width: 400px;
+	position: relative;
+	left:57%;
+}
+
+.text-flame2{
+	background-color: #FF3366;
+	text-align: center;
+	display:inline-block;
+	margin-top: 5px;
+	margin-left: 15%;
+}
+.text-position{
+    color: brack;
+	text-align: center;
+	display:inline-block;
+	margin-top: 40px;
+	margin-left: 15%;
+}
+.text-position1{
+    color: brack;
+	text-align: center;
+	display:inline-block;
+	margin-top: 40px;
+	margin-left: -35%;
+}
+
+.text-position2{
+    color: brack;
+	text-align: center;
+	display:inline-block;
+	margin-top: 40px;
+	margin-left: 55%;
+}
+
+.text-position3{
+    color: brack;
+	text-align: center;
+	display:inline-block;
+	margin-top: 60px;
+	margin-left: 30%;
+}
+
+.text-position4{
+    color: brack;
+	text-align: center;
+	display:inline-block;
+	margin-top: 60px;
+	margin-left: 2%;
+}
+
+.text-flame3{
+	background-color: #FF3366;
+	text-align: center;
+	display:inline-block;
+	margin-top: 5px;
+	margin-left: 55%;
+}
+
+.box1{
+    text-align: left;
+	width:400px;
+}
+
+.status1{
+    float:left;
+	font-size:100px;
+	position: relative;
+	top:50px;
+	left:85%;
+}
+
+.status2{
+    float:left;
+	font-size:100px;
+	position: relative;
+	top:50px;
+	left:40%;
+	transform: rotateY( 180deg );
+}
+
+.status3{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:150px;
+	left:40%;
+}
+
+.status4{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:150px;
+	left:60%;
+}
+
+.status5{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:70px;
+	left:50%;
+}
+
+.status6{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:250px;
+	left:45%;
+}
+
+.status7{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:20px;
+	left:45%;
+}
+
+.status8{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:210px;
+	left:40%;
+}
+
+.status9{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:107px;
+	left:25%;
+	transform: rotate(63deg);
+}
+
+.status10{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:160px;
+	left:23%;
+	transform: rotate(90deg);
+}
+
+.status11{
+    float:left;
+	font-size:50px;
+	position: relative;
+	top:210px;
+	left:20%;
+	transform: rotate(120deg);
+}
+
+.status12{
+    float:left;
+	font-size:100px;
+	position: relative;
+	top:100px;
+	left:10%;
+}
+
+.status13{
+    float:left;
+	font-size:60px;
+	position: relative;
+	top:100px;
+	left:15%;
+}
+
+.status14{
+    float:left;
+	font-size:100px;
+	position: relative;
+	top:100px;
+	left:20%;
+}
+
+.status15{
+    float:left;
+	position: relative;
+	top:100px;
+	left:60%;
+	font-size:130px;
+}
+
+.status16{
+    float:left;
+	position: relative;
+	top:100px;
+	left:24%;
+	font-size:38px;
+}
+
+.status17{
+    float:left;
+	position: relative;
+	top:150px;
+	left:28%;
+	font-size:40px;
+}
+
+.status18{
+    float:left;
+	position: relative;
+	top:260px;
+	left:19%;
+	font-size:40px;
+}
+
+.text{
+	color:#fff;
+	padding:0 20px;
+}
+
+.main-visual1{
+	width: 100%;
+	height:300px;
+	background: rgba(230,230,230, 0.3);
+	position: relative;
+}
+
+.main-visual2{
+	width: 100%;
+	height:350px;
+	background: rgba(230,230,230, 0.1);
+	position: relative;
+}
+
+.main-visual3{
+	width: 100%;
+	height:300px;
+	background: rgba(230,230,230, 0.3);
+	position: relative;
+}
+
+.main{
+	width: 80%;
+	#height: 1400px;
+	background-color: green;
+	margin:0 auto;
+}
+
+footer{
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	padding:50px 0;
+	background-color: #848282;
+}
+
+.footer-text{
+	color:#d3d8ff;
+}
+
+header .headline{
+background: rgba(230,247,255, 0.6);
+font-size: 32px;text-shadow: 0px 0px 0px #808080,6px 50px 6px #000000;
+}
+
+.size{
+margin-left:17%;
+padding-top:25px;
+display: inline-block;
+font-size:80px;
+}
+
+.size2{
+margin-left:2%;
+padding-top:25px;
+display: inline-block;
+font-size:80px;
+}
+
+.main-visual-content{
+	width: 350px;
+	height: 300px;
+	background-color: gold;
+}
+
+.main-left{
+	width: 80%;
+	height: 600px;
+	background-color: limegreen;
+	float: left;
+}
+
+.main-right{
+	width: 20%;
+	height: 600px;
+	background-color: palegreen;
+	float: left;
+}
+
+

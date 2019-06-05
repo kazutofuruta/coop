@@ -64,3 +64,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
+
+gem 'font-awesome-sass', '5.3.1' #Font Awesome のアイコンを使う
+gem "jquery-rails"
