@@ -1,0 +1,27 @@
+<h1>登録店舗　一覧</h1>
+
+<%= link_to '新規店舗登録', new_shop_user_path, class: 'btn btn-primary' %>
+
+<table class="table" border="3" bordercolor="black">
+	<tr>
+	    <th>店舗名</th>
+	    <th>代表者名</th>
+	    <th>メールアドレス</th>
+	    <th>電話番号</th>
+	    <th>店住所</th>
+	    <th>更新日</th>
+	</tr>
+	<% @shop_users.each do |shop| %>
+	<tr>
+		<td><%= link_to shop.shop_name %></td>
+		<td><%= shop.owner %></td>
+		<td><%= shop.email %></td>
+		<td><%= shop.phone_number %></td>
+		<td><%= shop.shop_address %></td>
+		<td><%= shop.updated_at %></td>
+	</tr>
+	<%= link_to '編集', edit_shop_user_path(shop), class: 'btn btn-primary mr-3' %>
+	<%= link_to '削除', [shop], method: :delete, data: { confirm: "ユーザー「#{shop.shop_name}」を削除します。よろしいですか？"}, class: 'btn btn-danger' %>
+	<% end %>
+</table>
+

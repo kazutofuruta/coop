@@ -1,10 +1,36 @@
-<h1>ログイン</h1>
+<header>
+	<h1 class="headline">
+	<div class="home">COOP</a>
+    </h1>
+</header>
 
-<%= form_with scope: :session, local: true do |f| %>
+
+<table class="table" border="3" bordercolor="black">
+
+		<th>
+
+
+<h1 class="login">ログイン</h1>
+<%= form_with scope: :session,class: "width-table", local: true do |f| %>
 <p>メールアドレス</p>
-<%= f.text_field :email, class: 'form-control', id:'session_email' %>
+<%= f.text_field :email, class: 'form-control', id:'session_email'%>
 <p>パスワード</p>
 <%= f.password_field :password, class: 'form-control', id:'session_password' %>
-<%= f.submit 'ログインする', class:'btn btn-primary' %>
+<br>
+<br>
+<br>
+<%= f.submit 'ログインする', class: 'btn btn-primary width'%>
+<p></p>
+<br>
 
 <% end %>
+</th>
+</table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
