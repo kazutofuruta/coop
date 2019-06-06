@@ -6,7 +6,11 @@
 <% end %>
 <% end %>
 
-<%= form_with model: [:admin, @user], local: true do |f| %>
+<%= form_with model: [:admin, user],class: "width-table", local: true do |f| %>
+
+<table class="table" border="3" bordercolor="black">
+	<tr>
+		<th>
 
 <P>名前</P>
 <%= f.text_field :name, class: 'form-control' %>
@@ -19,6 +23,10 @@
 <%= f.password_field :password, class: 'form-control' %>
 <p>パスワード確認</p>
 <%= f.password_field :password_confirmation,class: 'form-control' %>
-<%= f.submit '登録する', class: 'btn btn-primary' %>
+<br>
+<%= f.submit '登録する', class: 'btn btn-primary btn-width' %>
 
 <% end %>
+</th>
+</tr>
+</table>

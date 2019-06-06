@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_003748) do
+ActiveRecord::Schema.define(version: 2019_06_05_014404) do
 
   create_table "communities", force: :cascade do |t|
     t.string "community_name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shop_users", force: :cascade do |t|
+    t.string "shop_name", null: false
+    t.string "owner", null: false
+    t.string "email", null: false
+    t.string "shop_address", null: false
+    t.string "phone_number", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
