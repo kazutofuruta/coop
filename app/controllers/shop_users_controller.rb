@@ -45,6 +45,6 @@ class ShopUsersController < ApplicationController
   private
 
   def shop_user_params
-  	params.require(:shop_user).permit(:shop_name, :owner, :shop_address, :email, :phone_number, :password, :password_confirmation)
+  	params.require(:shop_user).permit(:shop_name, :owner, :shop_address, :email, :phone_number, :password, :password_confirmation, :image)
   end
 end

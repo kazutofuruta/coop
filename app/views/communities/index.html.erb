@@ -6,18 +6,31 @@
 
 <nav>
 	<ul class="nav-list">
-		<%= link_to new_admin_user_path do %>|<li class="nav-list-item">会員登録</li>|<% end %>
-		<%= link_to new_shop_user_path do %><li class="nav-list-item">店舗登録</li>|<% end %>
-		<li class="nav-list-item">宅配ドライバー登録</li>|
-		<% if current_shop %>
-		<li class="nav-list-item">使用方法</li>|
-		<% end %>
+
 		<% if current_user %>
-		<li class="nav-list-item">COOPとは</li>|
+
+			<%= link_to rooms_path do %><li class="nav-list-item">COOPルーム</li>|<% end %>
+			<li class="nav-list-item">COOPとは</li>|
+			<li class="nav-list-item">登録地域・店舗</li>|
+			<%= link_to logout_path, method: :delete do %><li class="nav-list-item">ログアウト</li>|<% end %>
+
+
+		<% elsif current_shop %>
+			<%= link_to new_room_path do %><li class="nav-list-item">COOPルーム作成</li>|<% end %>
+			<li class="nav-list-item">販売履歴</li>|
+			<li class="nav-list-item">店舗情報編集</li>|
+	        <%= link_to logout_path, method: :delete do %><li class="nav-list-item">ログアウト</li>|<% end %>
+
+		<% else %>
+			<%= link_to new_admin_user_path do %>|<li class="nav-list-item">会員登録</li>|<% end %>
+			<%= link_to new_shop_user_path do %><li class="nav-list-item">店舗登録</li>|<% end %>
+			<li class="nav-list-item">宅配ドライバー登録</li>|
+			<li class="nav-list-item">COOPとは</li>|
+			<li class="nav-list-item">登録地域・店舗</li>|
+			<%= link_to login_path do %><li class="nav-list-item">ログイン</li>|<% end %>
+
+
 		<% end %>
-		<li class="nav-list-item">登録地域・店舗</li>|
-		<%= link_to login_path do %><li class="nav-list-item">ログイン</li>|<% end %>
-		<%= link_to logout_path, method: :delete do %><li class="nav-list-item">ログアウト</li>|<% end %>
 
 	</ul>
 </nav>

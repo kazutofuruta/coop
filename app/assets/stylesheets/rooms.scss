@@ -1,0 +1,49 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #6c6b6b;
+}
+
+
+.word-position{
+    margin:0 5%;
+	text-align: right;
+}
+
+
+
+.send{
+
+	margin-top: 7%;
+	width: 400px;
+}
+
+
+.send2{
+ width: 10%;
+ margin-left:  80%;
+}
+
+.box-position{
+   width:70%;
+   margin: 0 auto;
+   font-family : Arial,'ＭＳ Ｐゴシック',serif ;
+}
+
+.frame {
+margin: 10px;
+display: inline-block;
+box-shadow: 0px 0px 20px -5px rgba(3, 0, 0, 0.6);
+}
+
+.background{
+	width:100%;
+	margin-top:-18px;
+	background-image: url(b066.gif);
+	background-position:30%  70%;
+}

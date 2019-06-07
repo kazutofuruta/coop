@@ -1,0 +1,129 @@
+<div class="background">
+
+<div class="box-position">
+	<br>
+	<br>
+
+	<h1><%= @room.room_name %></h1>
+	<br>
+	<h4>商品画像</h4>
+	<% @room.images.each do |image| %>
+	<div class="frame"><%= image_tag image.variant(resize: "180x180") if @room.images.attached? %></div>
+	<% end %>
+	<br>
+	<br>
+    <h4>キーワード</h4>
+
+</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<table class="table width-table2" border="3" bordercolor="black">
+
+	<% @talks.each do |talk| %>
+	<tr>
+		<% if current_user %>
+
+			    <% if talk.user_id != current_user.id %>
+
+			            <% if talk.shop_user_id != nil %>
+			                <th><%= image_tag talk.room.shop_user.image, class: "icon" if talk.room.shop_user.image.attached?  %>
+			            <% else %>
+			            	<th>
+			            <% end %>
+			    <% else %>
+	                    <th class="word-position">
+			    <% end %>
+
+		<% elsif current_shop %>
+
+			     <% if talk.shop_user_id == nil %>
+			         <th>
+			     <% else %>
+			         <th class="word-position">
+			     <%end%>
+
+		<% end %>
+
+		<% if current_user %>
+
+		    <% if talk.user_id != current_user.id %>
+
+		    		<% if talk.shop_user_id == nil %>
+		                    <div class="balloon2-left">
+		            <% else %>
+		            	    <div class="balloon2-left-owner">
+		            <% end %>
+
+						<%= talk.word %>
+
+		    <% else %>
+
+                    <div class="balloon2-right">
+					<%= talk.word %>
+
+		    <% end %>
+
+		<% elsif current_shop %>
+
+		         <% if talk.shop_user_id == nil %>
+		                <div class="balloon2-left">
+		         <% else %>
+		                <div class="balloon2-right">
+		         <% end %>
+
+                        <%= talk.word %>
+
+		<% end %>
+
+</div>
+<br><div class="font_min">
+<%= talk.user_name %>
+<% time = talk.created_at.in_time_zone('Asia/Tokyo') %>
+			[<%= time.strftime('%Y/%m/%d/ %H:%M:%S') %>]
+			<%= link_to '削除',talk_word_path(talk.id),method: :delete %>
+		</div>
+
+</th>
+</tr>
+<% end %>
+</table>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample9">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+
+
+					<%= form_with model: @talk, url: room_talks_path(@room.id), class: "width-table" do |f| %>
+
+
+                     <%= f.text_field :word, class: "send" %>
+                     <%= f.submit '送信' %>
+                     <% end %>
+
+             <% if current_user %>
+            <%= link_to '退出', room_talk_path(@room.id,current_user.id), method: :delete, class: "btn btn-danger send2 "%>
+            <% end %>
+            <br>
+	</div>
+</nav>
+
+</div>
+
+
