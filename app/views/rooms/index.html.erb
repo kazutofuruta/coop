@@ -1,0 +1,41 @@
+<h1>COOPROOM</h1>
+
+
+<table class="table width-table2" border="3" bordercolor="black">
+
+
+	<tr>
+		<th>ルームタイトル</th>
+		<th>店</th>
+		<th>代表者</th>
+		<th>住所</th>
+		<th>電話番号</th>
+	</tr>
+
+
+
+<% @rooms.each do |room| %>
+
+
+
+<tr>
+	<td>
+		<%= link_to room_path(room) do %>
+		<%= room.room_name %>
+		<% end %>
+	</td>
+	<td>
+		<%= room.shop_user.shop_name %>
+	</td>
+	<td>
+		<%= room.shop_user.owner %>
+	</td>
+	<td>
+		<%= room.shop_user.shop_address %>
+	</td>
+	<td>
+		<%= room.shop_user.phone_number %>
+	</td>
+</tr>
+<% end %>
+</table>
