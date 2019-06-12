@@ -1,0 +1,6 @@
+current directory: /vagrant/coop/vendor/bundle/ruby/2.5.0/gems/childprocess-1.0.1/ext
+/home/vagrant/.rbenv/versions/2.5.5/bin/ruby mkrf_conf.rb
+
+current directory: /vagrant/coop/vendor/bundle/ruby/2.5.0/gems/childprocess-1.0.1/ext
+/home/vagrant/.rbenv/versions/2.5.5/bin/ruby -rrubygems /vagrant/coop/vendor/bundle/ruby/2.5.0/gems/rake-12.3.2/exe/rake RUBYARCHDIR=/vagrant/coop/vendor/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/childprocess-1.0.1 RUBYLIBDIR=/vagrant/coop/vendor/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/childprocess-1.0.1
+Ignoring puma-3.12.1 because its extensions are not built. Try: gem pristine puma --version 3.12.1
