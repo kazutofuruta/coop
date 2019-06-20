@@ -4,5 +4,5 @@ class Room < ApplicationRecord
 
       belongs_to :shop_user
       has_many :talks
-
+      has_many :key_words
 end

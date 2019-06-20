@@ -1,0 +1,2 @@
+class BuyUser < ApplicationRecord
+end
