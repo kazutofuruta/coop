@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buy_user: MyString
+  buy_product: MyString
+  buy_key: MyString
+  price: MyString
+  buy_stock: 1
+  buy_user_address: MyString
+
+two:
+  buy_user: MyString
+  buy_product: MyString
+  buy_key: MyString
+  price: MyString
+  buy_stock: 1
+  buy_user_address: MyString

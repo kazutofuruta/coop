@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_081251) do
+ActiveRecord::Schema.define(version: 2019_06_19_090838) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,11 +33,34 @@ ActiveRecord::Schema.define(version: 2019_06_07_081251) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "buy_users", force: :cascade do |t|
+    t.string "buy_user"
+    t.string "buy_product"
+    t.string "price_total"
+    t.string "price"
+    t.integer "buy_stock"
+    t.string "buy_user_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "buy_shop_name"
+  end
+
   create_table "communities", force: :cascade do |t|
     t.string "community_name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "key_words", force: :cascade do |t|
+    t.string "key_word"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "shop_user_id"
+    t.integer "product_stock"
+    t.integer "product_price"
   end
 
   create_table "rooms", force: :cascade do |t|

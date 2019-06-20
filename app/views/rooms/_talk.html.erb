@@ -1,0 +1,70 @@
+	<table class="table width-table2" border="3" bordercolor="black">
+
+	<% talks.each do |talk| %>
+	<tr>
+		<% if current_user %>
+
+			    <% if talk.user_id != current_user.id %>
+
+			            <% if talk.shop_user_id != nil %>
+			                <th><%= image_tag talk.room.shop_user.image, class: "icon" if talk.room.shop_user.image.attached?  %>
+			            <% else %>
+			            	<th>
+			            <% end %>
+			    <% else %>
+	                    <th class="word-position">
+			    <% end %>
+
+		<% elsif current_shop %>
+
+			     <% if talk.shop_user_id == nil %>
+			         <th>
+			     <% else %>
+			         <th class="word-position">
+			     <%end%>
+
+		<% end %>
+
+		<% if current_user %>
+
+		    <% if talk.user_id != current_user.id %>
+
+		    		<% if talk.shop_user_id == nil %>
+		                    <div class="balloon2-left">
+		            <% else %>
+		            	    <div class="balloon2-left-owner">
+		            <% end %>
+
+						<%= talk.word %>
+
+		    <% else %>
+
+                    <div class="balloon2-right">
+					<%= talk.word %>
+
+		    <% end %>
+
+		<% elsif current_shop %>
+
+		         <% if talk.shop_user_id == nil %>
+		                <div class="balloon2-left">
+		         <% else %>
+		                <div class="balloon2-right">
+		         <% end %>
+
+                        <%= talk.word %>
+
+		<% end %>
+
+</div>
+<br><div class="font_min">
+<%= talk.user_name %>
+<% time = talk.created_at.in_time_zone('Asia/Tokyo') %>
+			[<%= time.strftime('%Y/%m/%d/ %H:%M:%S') %>]
+			<%= link_to '削除',talk_word_path(talk.id),method: :delete %>
+		</div>
+
+</th>
+</tr>
+<% end %>
+</table>

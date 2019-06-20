@@ -8,11 +8,23 @@
 	<br>
 	<h4>商品画像</h4>
 	<% @room.images.each do |image| %>
-	<div class="frame"><%= image_tag image.variant(resize: "180x180") if @room.images.attached? %></div>
+		<% if @room.images.attached? %>
+			<!-- <div class="frame"><%#= image_tag image.variant(resize: "180x180")  %></div> -->
+			<div class="frame">
+				<%= image_tag(image, width:100) %>
+			</div>
+
+		<% end %>
 	<% end %>
 	<br>
 	<br>
-    <h4>キーワード</h4>
+    <h3>キーワード</h3>
+    <table>
+    <h3><% @key_word.each do |key| %>
+      [キーワード：<%= key.key_word %>:<%= key.product_price %>円: 数量<%= key.product_stock %>]<br>
+      <% end %>
+  </h3>
+</table>
 
 </div>
 
@@ -61,7 +73,7 @@
 						<%= talk.word %>
 
 		    <% else %>
-
+                   <!-- <%= talk.word %>   購入時に個数を表示-->
                     <div class="balloon2-right">
 					<%= talk.word %>
 
@@ -112,13 +124,16 @@
 
 					<%= form_with model: @talk, url: room_talks_path(@room.id), class: "width-table" do |f| %>
 
-
                      <%= f.text_field :word, class: "send" %>
                      <%= f.submit '送信' %>
                      <% end %>
 
              <% if current_user %>
-            <%= link_to '退出', room_talk_path(@room.id,current_user.id), method: :delete, class: "btn btn-danger send2 "%>
+             <%= link_to '購入履歴へ',buy_users_path, class: "btn btn-success " %>
+             <% if flash[:notice] %><span class="font-color"><%= flash[:notice] %></span><% end %>
+            <%= link_to '退出', room_talk_path(@room.id,current_user.id), method: :delete, class: "btn btn-danger"%>
+
+
             <% end %>
             <br>
 	</div>

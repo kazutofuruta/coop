@@ -4,11 +4,15 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#destroy'
 
   namespace :admin do
-    resources :users
+    resources :users do
+  end
   end
 
   root to: 'communities#index'
   resources :communities
+  resources :key_words
+  resources :buy_users
+
 
   resources :talks, only: [:new, :index, :edit, :show] do
      delete '/word', to:'talks#destroy_talk'
