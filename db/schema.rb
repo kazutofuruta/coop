@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_090838) do
+ActiveRecord::Schema.define(version: 2019_06_22_084957) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_090838) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "buy_shop_name"
+    t.integer "room_id"
   end
 
   create_table "communities", force: :cascade do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_090838) do
     t.integer "shop_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "room_alert"
   end
 
   create_table "shop_users", force: :cascade do |t|
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_090838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
+    t.integer "alert"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +102,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_090838) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
     t.string "address"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

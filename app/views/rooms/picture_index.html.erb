@@ -1,0 +1,99 @@
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">
+				coopルーム
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbarEexample7">
+			<ul class="nav navbar-nav">
+
+				<% if current_user %>
+				<li><%= link_to picture_index_path do %>お店一覧<% end %></li>
+				<li class="active"><%= link_to rooms_path do %>ルーム一覧<% end %></li>
+				<% end %>
+				<li><%= link_to communities_path do %>ホームへ戻る<% end %></li>
+			</ul>
+			<h3 class="navbar-text navbar-right">COOP</h3>
+		</div>
+	</div>
+</nav>
+
+
+<div class="background">
+
+<% @shop_user.each do |shop| %>
+
+<table class="table table-width" border="3" bordercolor="black">
+	<th colspan="3"><h3><%= shop.shop_name %><h3></th>
+
+<tr>
+
+<td rowspan="5">
+    <% if current_user %>
+	<%= link_to shop_user_shop_show_path(shop.id) do %>
+<%= image_tag shop.image, class: "#" if shop.image.attached?  %>
+<% end %>
+    <% else %>
+
+    <%= image_tag shop.image, class: "#" if shop.image.attached?  %>
+
+    <% end %>
+</td>
+
+<td>店名</td>
+<td><%= shop.shop_name %></td>
+
+</tr>
+
+<tr>
+	<td>代表者</td>
+	<td><%= shop.owner %></td>
+</tr>
+
+<tr>
+	<td>電話番号</td>
+	<td><%= shop.phone_number %></td>
+</tr>
+
+<tr>
+	<td>住所</td>
+	<td><%= shop.shop_address %></td>
+</tr>
+
+<tr>
+	<td>登録日</td>
+	<td><% time = shop.created_at.in_time_zone('Asia/Tokyo') %>
+		<%= time.strftime('%Y年%m月%d日 %H時%M分%S秒') %>
+	</td>
+</tr>
+
+</table>
+<% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div>
+

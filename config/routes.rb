@@ -20,8 +20,12 @@ Rails.application.routes.draw do
 
   resources :rooms do
     resources :talks, only: [:create, :destroy]
+    get '/room_history', to:'buy_users#room_history'
   end
+   get '/picture_index', to:'rooms#picture_index'
 
-  resources :shop_users
+  resources :shop_users do
+    get '/shop_show', to:'rooms#shop_show'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
