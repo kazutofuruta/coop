@@ -21,6 +21,33 @@ class RoomsController < ApplicationController
 
   def index
   	@rooms = Room.all
+    @rooms.each do |room|
+    @key_word = KeyWord.where(room_id: room.id)
+
+    key_words = @key_word.pluck(:product_stock)
+
+    if key_words.join.to_i == 0
+    room.room_alert = 1
+    room.save
+    end
+
+    end
+  end
+
+  def picture_index
+    @shop_user = ShopUser.all
+  end
+
+  def shop_show
+    @rooms = Room.where(shop_user_id: params[:shop_user_id])
+  end
+
+
+  def destroy
+     @room = Room.find(params[:id])
+     @room.destroy
+
+     redirect_to rooms_path
   end
 
   def show
@@ -36,7 +63,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:room_name, images:[ ])
+    params.require(:room).permit(:room_name,:room_alert,images:[ ])
   end
 
   def talk_params

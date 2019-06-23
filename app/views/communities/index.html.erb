@@ -10,24 +10,25 @@
 
 		<% if current_user %>
 
-			<%= link_to rooms_path do %><li class="nav-list-item">COOPルーム</li>|<% end %>
-			<li class="nav-list-item">COOPとは</li>|
-			<li class="nav-list-item">登録地域・店舗</li>|
+			<%= link_to rooms_path do %><li class="nav-list-item">COOPルーム一覧</li>|<% end %>
+			<%= link_to picture_index_path do %><li class="nav-list-item">お店一覧</li>|<% end %>
+			<%= link_to buy_users_path do %><li class="nav-list-item">購入履歴</li>|<% end %>
+			<%= link_to edit_admin_user_path(current_user.id) do %><li class="nav-list-item">会員情報変更(住所変更)</li>|<% end %>
 			<%= link_to logout_path, method: :delete do %><li class="nav-list-item">ログアウト</li>|<% end %>
 
 
 		<% elsif current_shop %>
 			<%= link_to new_room_path do %><li class="nav-list-item">COOPルーム作成</li>|<% end %>
+			<%= link_to rooms_path do %><li class="nav-list-item">COOPルーム一覧</li>|<% end %>
 			<li class="nav-list-item">販売履歴</li>|
-			<li class="nav-list-item">店舗情報編集</li>|
+			<%= link_to edit_shop_user_path(current_shop.id) do %><li class="nav-list-item">店舗情報編集</li>| <% end %>
 	        <%= link_to logout_path, method: :delete do %><li class="nav-list-item">ログアウト</li>|<% end %>
 
 		<% else %>
 			<%= link_to new_admin_user_path do %>|<li class="nav-list-item">会員登録</li>|<% end %>
 			<%= link_to new_shop_user_path do %><li class="nav-list-item">店舗登録</li>|<% end %>
-			<li class="nav-list-item">宅配ドライバー登録</li>|
 			<li class="nav-list-item">COOPとは</li>|
-			<li class="nav-list-item">登録地域・店舗</li>|
+			<%= link_to picture_index_path do %><li class="nav-list-item">登録店舗一覧</li>|<% end %>
 			<%= link_to login_path do %><li class="nav-list-item">ログイン</li>|<% end %>
 
 
@@ -73,8 +74,8 @@
 	<div class="text-position1"><h2>Point.1</h2></div><br>
 	<div class="text-flame2"><h3 class="text">店舗コミュニティ内で</h3></div>
 	<br>
-    <div class="text-flame2"><h3 class="text">[商品名+"購入"]と送信すると購入完了。</h3></div><br>
-    <div class="text-position box1">※[商品名+購入]と送信すれば購入完了。ご自宅に商品が届きますので、お間違いのないようご注意ください</div>
+    <div class="text-flame2"><h3 class="text">[商品名+"購入数"]を送信すると購入完了。</h3></div><br>
+    <div class="text-position box1">※[商品名+購入数]を送信すれば購入完了。ご自宅に商品が届きますので、お間違いのないようご注意ください</div>
 	<div class="main-visual-content2"></div>
 </div>
 
@@ -98,7 +99,7 @@
 	<br>
 	<div class="text-flame2"><h3 class="text">会員登録費：無料</h3></div>
 	<br>
-    <div class="text-flame2"><h3 class="text">店舗登録費：1000/円</h3></div>
+    <div class="text-flame2"><h3 class="text">店舗登録費：無料</h3></div>
     <br><div class="text-flame2"><h3 class="text">宅配ドライバー登録費：無料</h3></div>
     <br>
     <div class="text-position box1">※[商品名+購入]と送信すれば購入が完了し、ご自宅の方に届きますので、お間違いのないようご注意ください</div>

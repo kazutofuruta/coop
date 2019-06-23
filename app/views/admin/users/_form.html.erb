@@ -18,7 +18,9 @@
 <%= f.text_field :email, class: 'form-control' %><br>
 <p>住所</p>
 <%= f.text_field :address, class: 'form-control' %><br>
-<%= f.check_box :admin, class: 'form-check-input'%>|管理者権限
+<p>電話番号</p>
+<%= f.text_field :phone, class: 'form-control' %><br>
+<%#= f.check_box :admin, class: 'form-check-input'%><!-- |管理者権限 -->
 <p>パスワード</p>
 <%= f.password_field :password, class: 'form-control' %>
 <p>パスワード確認</p>

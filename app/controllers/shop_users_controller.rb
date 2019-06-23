@@ -7,7 +7,7 @@ class ShopUsersController < ApplicationController
    @shop_user = ShopUser.new(shop_user_params)
 
    if @shop_user.save
-   	redirect_to shop_users_path, notice:"「#{@shop_user.shop_name}」店を登録しました。"
+   	redirect_to communities_path, notice:"「#{@shop_user.shop_name}」店を登録しました。"
    else
    	render :new
    end
@@ -29,7 +29,7 @@ class ShopUsersController < ApplicationController
    @shop_user = ShopUser.find(params[:id])
 
    if @shop_user.update(shop_user_params)
-      redirect_to shop_user_path(@shop_user), notice: "「#{@shop_user.shop_name}」店の登録更新しました。"
+      redirect_to communities_path, notice: "「#{@shop_user.shop_name}」店の登録更新しました。"
 
   else
     render :edit

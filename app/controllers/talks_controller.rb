@@ -29,13 +29,13 @@ class TalksController < ApplicationController
 
       # word = @talk.word
       # key = key_word.key_word
-
-binding.pry
+      #binding.pry
          stock = @talk.word.chars - key_word.chars
          buy_stock = @talk.word.chars - stock
 
+         if stock.join == "" || stock.join.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z').to_i != 0
 
-     if key_word == buy_stock.join
+           if key_word == buy_stock.join
 
           # max_l = (word.chars & key.chars)
            #min_l = (@talk.word.chars - key_word.chars)
@@ -47,29 +47,51 @@ binding.pry
            end
 
 
-        @buy_user.buy_product = key_word
-
         # binding.pry
         product = @key_words.where(key_word: key_word).first
+
+        if product.product_stock >= @buy_user.buy_stock
 
 
         product.product_stock -= @buy_user.buy_stock
 
-        product.save
+           product.save
 
-        @buy_user.buy_shop_name = @room.shop_user.shop_name
+            @buy_user.buy_product = key_word
 
-        @buy_user.price = product.product_price
+            @buy_user.buy_shop_name = @room.shop_user.shop_name
 
-        @buy_user.price_total = product.product_price * @buy_user.buy_stock
+            @buy_user.price = product.product_price
 
-        @buy_user.user_id = current_user.id
+            @buy_user.price_total = product.product_price * @buy_user.buy_stock
 
-        @buy_user.buy_user = current_user.name
+            @buy_user.user_id = current_user.id
 
-        @buy_user.buy_user_address = current_user.address
+            @buy_user.buy_user = current_user.name
 
-        @buy_user.save
+            @buy_user.buy_user_address = current_user.address
+
+            @buy_user.room_id = @room.id
+
+            @buy_user.save
+
+            @talk.alert = 3
+
+            @talk.save
+
+        elsif  product.product_stock == 0
+          flash[:notice] = "※購入できません。※「#{key_word}は完売しました。」"
+
+           @talk.alert = 2
+           @talk.save
+        else
+           flash[:notice] = "※購入できません。※「#{key_word}は残り#{product.product_stock}です」 購入数「#{@buy_user.buy_stock}」"
+
+           @talk.alert = 1
+           @talk.save
+         end
+
+       end
 
       end
     end
@@ -107,7 +129,7 @@ private
 
 
   def talk_params
-  	params.require(:talk).permit(:word)
+  	params.require(:talk).permit(:word, :alert)
   end
 
   def buy_user_params

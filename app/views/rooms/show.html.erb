@@ -16,20 +16,35 @@
 
 		<% end %>
 	<% end %>
-	<br>
-	<br>
-    <h3>キーワード</h3>
-    <table>
-    <h3><% @key_word.each do |key| %>
-      [キーワード：<%= key.key_word %>:<%= key.product_price %>円: 数量<%= key.product_stock %>]<br>
+    <table  class="table table-width" border="2" bordercolor="black">
+      <tr>
+      	<th class="table-width"><h3>商品名</h3></th>
+      	<th class="table-width"><h3>値段</h3></th>
+      	<th class="table-width"><h3>数量</h3></th>
+      <tr>
+    <h3>
+    	<% @key_word.each do |key| %>
+		 <% if key.product_stock <= 0 %>
+		 	<tr>
+		      <td class="red-line"><%= key.key_word %></td>
+		      <td class="red-line"><%= key.product_price %></td>
+		      <td class="font-color3">完売しました。</td>
+        </tr>
+      <% else %>
+
+      <tr>
+	      <td class="font"><%= key.key_word %></td>
+		  <td class="font"><%= key.product_price %></td>
+		  <td class="font"><%= key.product_stock %></td><br>
+	  </tr>
+
+      <% end %>
       <% end %>
   </h3>
 </table>
 
 </div>
 
-	<br>
-	<br>
 	<br>
 	<br>
 
@@ -74,8 +89,17 @@
 
 		    <% else %>
                    <!-- <%= talk.word %>   購入時に個数を表示-->
-                    <div class="balloon2-right">
+                    <% if talk.alert == 1 %>
+                    <div class="balloon2-right red-line">
+					<span class="font-color2"><%= talk.word %></span>
+
+					<% elsif talk.alert == 3 %>
+					  <div class="balloon3-right">
+										<%= talk.word %>
+					<% else %>
+					<div class="balloon2-right">
 					<%= talk.word %>
+					<% end %>
 
 		    <% end %>
 
@@ -93,10 +117,29 @@
 
 </div>
 <br><div class="font_min">
-<%= talk.user_name %>
-<% time = talk.created_at.in_time_zone('Asia/Tokyo') %>
-			[<%= time.strftime('%Y/%m/%d/ %H:%M:%S') %>]
+
+	   <% if talk.alert == 1 %>
+				<span class="font-color2">※購入数をご確認ください。</span><div class=" red-line"><%= talk.user_name %>
+				<% time = talk.created_at.in_time_zone('Asia/Tokyo') %>
+							[<%= time.strftime('%Y/%m/%d/ %H:%M:%S') %>]
+			</div>
+
+		<% elsif talk.alert == 2%>
+
+		<span class="font-color2">※完売しました。</span><div class=" red-line"><%= talk.user_name %>
+				<% time = talk.created_at.in_time_zone('Asia/Tokyo') %>
+							[<%= time.strftime('%Y/%m/%d/ %H:%M:%S') %>]
+			</div>
+
+		<% else %>
+
+			<%= talk.user_name %>
+				<% time = talk.created_at.in_time_zone('Asia/Tokyo') %>
+							[<%= time.strftime('%Y/%m/%d/ %H:%M:%S') %>]
+		<% end %>
+			<%if current_shop %>
 			<%= link_to '削除',talk_word_path(talk.id),method: :delete %>
+			<% end %>
 		</div>
 
 </th>
@@ -133,6 +176,10 @@
              <% if flash[:notice] %><span class="font-color"><%= flash[:notice] %></span><% end %>
             <%= link_to '退出', room_talk_path(@room.id,current_user.id), method: :delete, class: "btn btn-danger"%>
 
+
+            <% elsif current_shop %>
+             <%= link_to '購入者一覧',room_room_history_path(@room.id), class: "btn btn-success " %>
+             <%= link_to 'ルーム一覧', rooms_path, class: "btn btn-danger"%>
 
             <% end %>
             <br>
