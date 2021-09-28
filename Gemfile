@@ -74,7 +74,7 @@ gem "jquery-rails"
 gem "sidekiq"
 gem "redis-namespace"
 
-gem 'nokogiri', '~> 1.10.3'
+gem 'nokogiri', '~> 1.12.5'
 
 
 
